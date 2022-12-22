@@ -1,0 +1,337 @@
+body{
+    font-family: 'Inter';
+    font-style: normal;   
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 2%;
+}
+
+textarea{
+    border: none;
+    resize: none;
+    box-sizing: border-box;
+    background: #FFF;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+button{
+    color: #0A3871;
+    padding: 24px;
+    font-size: 16px;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    background: #D8DFE8;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+button:hover{
+    color: #D8DFE8;
+    background: #0A3871;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0;
+    box-sizing: border-box;
+}
+
+#input{
+    width: 100%;
+    height: 70%;
+}
+
+#logo{
+    width: 120px;
+    height: 48px;
+}
+
+#mainArea{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#textArea{
+    width: 100%;
+    height: 100%;
+    margin: 0 0 .5rem 0;
+}
+
+#notice{
+    display: flex;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#buttons button{
+    width: 100%;
+}
+
+#output{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    background: #FFF;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px #00000014;
+}
+
+#inactive{
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    justify-self: center;
+    width: 100%;
+}
+
+#active{
+    flex-direction: column;
+    gap: 1rem;
+    justify-self: center;
+    width: 85%;
+    height: 80%;
+    margin: 9%;
+}
+
+.bg{
+    background: #F3F5FC;
+}
+
+.main-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 75%;
+    box-sizing: border-box;
+    padding: 10% 5%;
+}
+
+.swap-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.text-box{
+    width: 100%;
+    height: 100%;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.text-input{
+    width: 100%;
+    font-size: 2rem;
+    color: #0A3871;
+    background: #F3F5FC;
+}
+
+.text-input::placeholder{
+    color: #0A3871;
+    opacity: 1;
+}
+
+.text-output{
+    height: 50%;
+    font-size: 1.5rem;
+    color: #495057;
+}
+
+.text-1{
+    font-weight: 400;
+    line-height: 150%;
+    font-size: 12px;
+    color: #495057;
+    opacity: 0.8;
+}
+
+#notice .text-1:before{
+    content: url("./assets/bi_exclamation-circle-fill.svg");
+    margin: 0 .5rem 0 0;
+    vertical-align: -20%;
+}
+
+#notice .invalid:before{
+    content: url("./assets/bi_exclamation-circle-fill-red.svg");
+    margin: 0 .5rem 0 0;
+    vertical-align: -20%;
+}
+
+.inactive-info{
+    margin: 5% 10%;
+    text-align: center;
+}
+
+.title-1{ 
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: #343A40;
+}
+
+.text-2{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #495057;
+}
+
+.inactive-img{
+    display: none;
+}
+
+.swap-button{
+    padding: 1rem;
+    border-radius: 24px;
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+.swap-button:hover{
+    background: #D8DFE8;
+}
+
+.flex{
+    display: flex;
+}
+
+.hidden{
+    display: none;
+}
+
+.invalid{
+    color: red;
+}
+
+#notice .invalid{
+    animation: rumble .1s linear;
+}
+
+@keyframes rumble{
+    25%{
+        transform: rotate(-3deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    75%{
+        transform: rotate(3deg);
+    }
+}
+
+@media screen and (min-width: 500px){
+    main{
+        height: auto;
+        min-height: 100%;
+    }
+    
+    #mainArea{
+        height: auto;
+        min-height: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    main{
+        flex-direction: row;
+        gap: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    footer{
+        position: absolute;
+        bottom: 0;
+        padding: .3rem 0;
+    }
+    
+    #input{
+        width: 71%;
+        height: 100%;
+    }
+    
+    #logo{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #mainArea{
+        flex-direction: row;
+        height: 100%;
+    }
+    
+    #textArea{
+        width: 100%;
+    }    
+        
+    #buttons{
+        flex-direction: row;
+    }
+    
+    #buttons button{
+        width: 50%;
+    }
+    
+    #output{
+        width: 29%;
+        height: auto;
+    }
+    
+    #inactive{
+        width: max-content;
+        margin: auto;
+    }
+    
+    #active{
+        height: auto;
+    }
+    
+    .main-wrapper{
+        height: 95%;
+        padding: 5% 10% 5% 20%;
+    }
+    
+    .swap-wrapper{
+        flex-wrap: wrap;
+        align-content: center;
+        padding: 0 5%;
+    }
+    
+    .swap-button{
+        transform: none;
+    }
+    
+    .inactive-img{
+        display: block;
+    }
+    
+    .text-output{
+        height: 89%;
+    }
+}

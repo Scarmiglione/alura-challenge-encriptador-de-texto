@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Challenge | Encriptador de Texto</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.png">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg">
+    <main>
+        <section id="input">
+            <div id="logo">
+                <img src="./assets/Logo.svg" alt="alura logo" width="31px" height="48px"/>
+            </div>
+            
+            <div id="mainArea">
+                <div class="main-wrapper">
+                    <div id="textArea">
+                        <textarea id="textInput" class="text-box text-input" placeholder="Ingrese el texto aqui" oninput="revalidation()"></textarea>
+                    </div>
+                    <div>
+                        <div id="notice">
+                            <p class="text-1">Solo letras minúsculas y sin acentos o caracteres especiales</p>
+                        </div>
+                        <div id="buttons">
+                            <button onclick="encrypt()">Encriptar</button>
+                            <button onclick="decrypt()">Desencriptar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="swap-wrapper">
+                    <div role="button" class="swap-button" onclick="swapText()"><img src="./assets/arrow-right-arrow-left-solid.svg" alt="intercambiar texto" width="32px" height="32px"/></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="output">
+            <div class="wrapper">
+                <div id="inactive" class="flex">
+                    <img class="inactive-img" src="./assets/Muñeco.svg" alt="persona analizando una gema" width="336px" height="304px"/>
+                    <div class="inactive-info">
+                        <h4 class="title-1">Ningún mensaje fue encontrado</h4>
+                        <p class="text-2">Ingresa el texto que desees encriptar 
+                        o desencriptar.</p>
+                    </div>
+                </div>
+                    
+                <div id="active" class="flex hidden">
+                    <textarea id="textOutput" type="text" class="text-box text-output" readonly></textarea>
+                    <button id="copy" onclick="handleCopy()">Copiar</button>
+                </div>
+            </div>
+        </section>
+        
+        <footer >
+            <p class="text-1">Desarrollado por Osmar Vazquez</p>
+        </footer>
+    </main>
+    
+    <script src="./main.js"></script>
+</body>
+
