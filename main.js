@@ -23,7 +23,7 @@ let invalidState = false;
 
 function validation(str) {
     if(str === "") { setDefault(); invalidState = false; return false; }
-    const invalid = str.match(/[^a-zA-Z|\s]*/g).filter(x => x != "");
+    const invalid = str.match(/[^a-z|\s]*/g).filter(x => x != "");
     if(invalid.length == 0) return true;
     inactive.classList.remove("hidden"); active.classList.add("hidden");
     inputArea.classList.add("invalid"); notice.classList.add("invalid");
