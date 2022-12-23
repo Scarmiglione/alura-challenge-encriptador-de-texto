@@ -33,6 +33,7 @@ function validation(str) {
 }
 
 function revalidation() {
+    setDefault(valid=false);
     if(!invalidState) return;
     const input = inputArea.value;
     if(!validation(input)) return;
@@ -48,7 +49,6 @@ function formatText() {
     if(!invalidState) return;
     const input = inputArea.value;
     let output = input.normalize("NFD").toLowerCase();
-    console.log(output);
     const offenders = output.match(/[^a-z|\s]*/g).filter(x => x != "");
     for(let i in offenders) {
         output = output.replace(offenders[i], "");
@@ -57,11 +57,13 @@ function formatText() {
     revalidation();
 }
 
-const setDefault = () => {
+const setDefault = (valid=true) => {
     inactive.classList.remove("hidden");
     active.classList.add("hidden");
-    inputArea.classList.remove("invalid");
-    notice.classList.remove("invalid");
+    if(valid) {
+        inputArea.classList.remove("invalid");
+        notice.classList.remove("invalid");
+    }
 }
 
 function encrypt() {
