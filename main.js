@@ -22,7 +22,8 @@ const dict = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "
 let invalidState = false;
 
 function validation(str) {
-    if(str === "") { setDefault(); invalidState = false; return false; }
+    const text = str.match(/[^\s]*/g).filter(x => x != "");
+    if(str === "" || (text.length == 0)) { setDefault(); invalidState = false; return false; }
     const invalid = str.match(/[^a-z|\s]*/g).filter(x => x != "");
     if(invalid.length == 0) return true;
     inactive.classList.remove("hidden"); active.classList.add("hidden");
@@ -37,6 +38,23 @@ function revalidation() {
     if(!validation(input)) return;
     invalidState = false;
     inputArea.classList.remove("invalid"); notice.classList.remove("invalid");
+    setTimeout(() => {
+        notice.classList.remove("valid");
+    }, 2000);
+    notice.classList.add("valid");
+}
+
+function formatText() {
+    if(!invalidState) return;
+    const input = inputArea.value;
+    let output = input.normalize("NFD").toLowerCase();
+    console.log(output);
+    const offenders = output.match(/[^a-z|\s]*/g).filter(x => x != "");
+    for(let i in offenders) {
+        output = output.replace(offenders[i], "");
+    }
+    inputArea.value = output;
+    revalidation();
 }
 
 const setDefault = () => {

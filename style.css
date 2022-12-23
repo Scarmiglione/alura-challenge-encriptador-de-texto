@@ -178,9 +178,26 @@ footer{
 }
 
 #notice .invalid:before{
-    content: url("./assets/bi_exclamation-circle-fill-red.svg");
-    margin: 0 .5rem 0 0;
-    vertical-align: -20%;
+    content: url("./assets/circle-xmark-solid.svg");
+    cursor: pointer;
+}
+
+#notice .valid:before{
+    content: url("./assets/circle-check-solid.svg");
+    opacity: 0;
+    animation: fadeIn 2s ease-in;  
+}
+
+@keyframes fadeIn{
+    0% {
+		opacity: 0;
+	}
+	10% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .inactive-info{
@@ -227,6 +244,10 @@ footer{
 
 .invalid{
     color: red;
+}
+
+.valid{
+    color: green;
 }
 
 #notice .invalid{
