@@ -35,7 +35,7 @@ function validation(str) {
 function revalidation() {
     setDefault(valid=false);
     if(!invalidState) return;
-    const input = inputArea.value;
+    const input = inputArea.innerText;
     if(!validation(input)) return;
     invalidState = false;
     inputArea.classList.remove("invalid"); notice.classList.remove("invalid");
@@ -47,13 +47,13 @@ function revalidation() {
 
 function formatText() {
     if(!invalidState) return;
-    const input = inputArea.value;
+    const input = inputArea.innerText;
     let output = input.normalize("NFD").toLowerCase();
     const offenders = output.match(/[^a-z|\s]*/g).filter(x => x != "");
     for(let i in offenders) {
         output = output.replace(offenders[i], "");
     }
-    inputArea.value = output;
+    inputArea.innerText = output;
     revalidation();
 }
 
@@ -67,7 +67,7 @@ const setDefault = (valid=true) => {
 }
 
 function encrypt() {
-    const input = inputArea.value;
+    const input = inputArea.innerText;
     if(!validation(input)) return;
     inactive.classList.add("hidden"); 
     active.classList.remove("hidden");
@@ -79,7 +79,7 @@ function encrypt() {
 }
 
 function decrypt() {
-    const input = inputArea.value;
+    const input = inputArea.innerText;
     if(!validation(input)) return;
     inactive.classList.add("hidden"); 
     active.classList.remove("hidden");
@@ -92,9 +92,9 @@ function decrypt() {
 
 function swapText() {
     if(active.classList.contains("hidden")) return;
-    const input = inputArea.value;
+    const input = inputArea.innerText;
     const output = outputArea.value;
-    inputArea.value = output;
+    inputArea.innerText = output;
     outputArea.innerHTML = input;
 }
 

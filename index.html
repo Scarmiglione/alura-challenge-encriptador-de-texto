@@ -19,8 +19,9 @@
             
             <div id="mainArea">
                 <div class="main-wrapper">
-                    <div id="textArea">
-                        <textarea id="textInput" class="text-box text-input" placeholder="Ingrese el texto aqui" oninput="revalidation()"></textarea>
+                    <div id="textArea" onclick="textInput.focus()">
+                        <!--textarea id="textInput" class="text-box text-input" placeholder="Ingrese el texto aqui" oninput="revalidation()"></textarea-->
+                        <span id="textInput" class="text-box text-input" contenteditable="true" data-placeholder="Ingrese el texto aqui" oninput="revalidation()"></span>
                     </div>
                     <div>
                         <div id="notice">
@@ -58,7 +59,7 @@
         </section>
         
         <footer >
-            <p class="text-1">Desarrollado por Osmar Vazquez</p>
+            <p class="text-1">Desarrollado por <a href="https://www.linkedin.com/in/osmarvazquez">Osmar Vazquez</a></p>
         </footer>
     </main>
     
